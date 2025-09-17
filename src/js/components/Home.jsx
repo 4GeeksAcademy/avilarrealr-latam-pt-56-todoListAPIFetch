@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useState } from "react"
+import { Input } from "./Input"
+import { List } from "./List"
+import { Counter } from "./Counter"
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
+
+	const [tasks, setTasks] = useState([])
+
+	const addTask = (newTask) => {
+		setTasks([...tasks, newTask])
+	}
+
+	const deleteTask = (indexToDelete) => {
+		const updatedTasks = tasks.filter((_, index) => index !== indexToDelete)
+		setTasks(updatedTasks)
+	}
+
+
 	return (
-		<div className="text-center">
-            
+		<React.Fragment>
+			<div className="container" style={{ fontFamily: "roboto-light" }}>
+				<Input addTask={addTask} />
+				<List tasks={tasks} deleteTask={deleteTask} />
+				<Counter taskCount={tasks.length} />
+				<div className="row">
+					<div className="col d-flex justify-content-center">
+						<div className="border border-bottom" style={{ width: "49vw", height: "0.8vh" }}></div>
+					</div>
+					<div className="col d-flex justify-content-center">
+						<div className="border border-bottom" style={{ width: "47vw", height: "0.8vh" }}></div>
+					</div>
+				</div>
+			</div>
+		</React.Fragment>
+	)
+}
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
-
-export default Home;
+export default Home
