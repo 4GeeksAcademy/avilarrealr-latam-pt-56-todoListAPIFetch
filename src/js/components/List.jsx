@@ -1,6 +1,6 @@
 import React from "react";
 
-export const List = ({ tasks, deleteTask, deleteAllTasks }) => {
+export const List = ({ tasks, deleteTask }) => {
 
     return (
         <div className="row">
@@ -21,11 +21,6 @@ export const List = ({ tasks, deleteTask, deleteAllTasks }) => {
                         </li>
                     ))}
                 </ul>
-                <button
-                    onClick={deleteAllTasks}
-                    className="btn btn-outline-danger w-100">
-                    Delete All
-                </button>
             </div>
         </div>
     );

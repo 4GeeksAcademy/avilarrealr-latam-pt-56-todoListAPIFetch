@@ -144,10 +144,26 @@ const Home = () => {
 				<div className="container" style={{ fontFamily: "roboto-light" }}>
 					{user ? (
 						<div className="col">
-							<h1 className="text-center">Bienvenido, {user}</h1>
-							<Input addTask={addTask} />
-							<List tasks={tasks} deleteTask={deleteTask} deleteAllTasks={deleteAllTasks} />
-							<Counter taskCount={tasks.length == 0 ? "No hay tareas, añadir tareas" : ` items left: ${tasks.length}`} />
+							<h1
+								className="text-center"
+							>Bienvenido, {user}
+							</h1>
+							<Input
+								addTask={addTask}
+							/>
+							<List
+								tasks={tasks}
+								deleteTask={deleteTask}
+
+							/>
+							<Counter
+								taskCount={tasks.length == 0 ? "No hay tareas, añadir tareas" : ` items left: ${tasks.length}`}
+							/>
+							<button
+								onClick={deleteAllTasks}
+								className="btn btn-outline-danger w-100">
+								Delete All
+							</button>
 							<div className="row">
 								<div className="col d-flex justify-content-center">
 									<div className="border border-bottom" style={{ width: "49vw", height: "0.8vh", boxShadow: "0px 3px 4px rgba(0, 0, 0, 0.2)" }}></div>
