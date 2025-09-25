@@ -15,7 +15,7 @@ export const UserForm = ({ onLogin, addUser, deleteUser }) => {
             deleteUser(inputValue.trim())
             setInputValue("")
         }
-    };
+    }
 
     return (
         <div className="card p-4">

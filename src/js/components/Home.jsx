@@ -47,10 +47,6 @@ const Home = () => {
 				alert("Error, usuario no encontrado, click en Create user para crear un nuevo usuario")
 				return
 			}
-			// const body = await response.json()
-			// const todoLabels = body.todos.map((toDo) => toDo.label)
-			// setUser(username)
-			// setTasks(todoLabels)
 			const body = await response.json();
 			setTasks(body.todos);
 			setUser(username);
@@ -138,6 +134,8 @@ const Home = () => {
 		}
 	}
 
+
+
 	return (
 		<React.Fragment>
 			<div className="d-flex justify-content-center align-items-center vh-100">
@@ -147,6 +145,12 @@ const Home = () => {
 							<h1
 								className="text-center"
 							>Bienvenido, {user}
+								<i
+									className="px-3 fa-solid fa-right-from-bracket text-danger"
+									style={{ cursor: 'pointer' }}
+									onClick={() => setUser(null)}
+								>
+								</i>
 							</h1>
 							<Input
 								addTask={addTask}
